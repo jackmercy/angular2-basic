@@ -1,0 +1,15 @@
+{
+    "users": [
+        { "id": 1, "username": "admin", "password": "admin", "role": "admin" },
+        { "id": 2, "username": "jhin", "password": "123", "role": "user" },
+        { "id": 3, "username": "oriana", "password": "123", "role": "user" },
+        { "id": 4, "username": "ezreal", "password": "123", "role": "user" },
+        { "id": 5, "username": "lux", "password": "123", "role": "user" },
+        { "id": 6, "username": "lilly", "password": "123", "role": "user" },
+        { "id": 7, "username": "vayne", "password": "123", "role": "user" },
+        { "id": 8, "username": "juggernaut", "password": "123", "role": "user" },
+        { "id": 9, "username": "lucian", "password": "123", "role": "user" },
+        { "id": 10, "username": "marcus", "password": "123", "role": "user" }
+    ],
+    "post": { "title": "Testing" }
+}
