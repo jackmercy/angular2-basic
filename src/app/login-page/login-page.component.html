@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="example-form row">
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="username" matInput placeholder="Email" required>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <input [(ngModel)]="password" type="password" matInput placeholder="Password" required>
+    </mat-form-field>
+    <div class="offset-md-2">
+      <!-- <button mat-raised-button >Login</button> -->
+      <button mat-raised-button (click)="loginWithEmail()">Login</button>
+    </div>
+  </div>
+  {{error}}
+</div>
