@@ -21,7 +21,7 @@ export class AuthService {
   loginWithEmail(username: string, password: string): Observable<User> {
     return this.http.get<User>(this.baseUrl + '/users?username=' + username + '&password=' + password)
       .pipe(
-        tap(user => { this.Storage.setUser("user",user[0]); this.AuthState = true; })
+        tap(user => { this.Storage.setUser('user', user[0]); this.AuthState = true; })
       );
   }
 
