@@ -1,16 +1,28 @@
 <div class="container">
   <div class="example-form row">
-    <mat-form-field class="example-full-width">
-      <input [(ngModel)]="username" matInput placeholder="Email" required>
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <input [(ngModel)]="password" type="password" matInput placeholder="Password" required>
-    </mat-form-field>
-    <div class="offset-md-2">
-      <!-- <button mat-raised-button >Login</button> -->
-      <button mat-raised-button (click)="loginWithEmail()">Login</button>
-    </div>
+    <form [formGroup]="loginForm" >
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email"
+               formControlName="username">
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(username)" >
+          </app-error-field>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="password" matInput placeholder="Password"
+               formControlName="password">
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(password)" >
+          </app-error-field>
+        </mat-error>
+      </mat-form-field>
+      <div class="offset-md-2">
+        <!-- <button mat-raised-button >Login</button> -->
+        <button mat-raised-button (click)="loginWithEmail()">Login</button>
+      </div>
+    </form>
   </div>
-  {{error}}
+  {{this.loginForm.get('username').value}}
 </div>

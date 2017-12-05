@@ -23,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppDialogComponent } from './app-dialog/app-dialog.component';
+import { ErrorFieldComponent } from './error-field/error-field.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPDlkEzb8kIucC6MW8CWsXNAwkC-5M2jM',
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     WelcomeComponent,
     AdminComponent,
     ErrorPageComponent,
-    AppDialogComponent
+    AppDialogComponent,
+    ErrorFieldComponent
   ],
   imports: [
     BrowserModule,
