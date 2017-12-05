@@ -8,25 +8,25 @@ import {AbstractControl, ValidationErrors} from '@angular/forms';
 })
 export class ErrorFieldComponent implements OnInit {
 
-  @Input() field: AbstractControl;
+  @Input() errorCode: ValidationErrors;
   @Input() displayError: boolean;
 
   validationMessage: any = {
-    required: 'You can\'t leave it empty'
-  }
+    required: 'You can\'t leave it empty',
+    noUSer: 'Invalid username or password!'
+  };
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.displayError);
   }
 
-  getErrorMessage(field: AbstractControl): string {
-/*    Object.keys(field.errors).map(key => {
-      if ()
-    })*/
-    return 'loi roi ne';
+  getErrorMessage(errorCode: ValidationErrors): string {
+    let message = '';
+    if (errorCode) {
+      Object.keys(errorCode).map(key => message = this.validationMessage[key]);
+    }
+    return message;
   }
-
-
-
 }

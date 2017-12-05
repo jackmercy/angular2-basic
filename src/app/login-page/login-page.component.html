@@ -3,26 +3,35 @@
     <form [formGroup]="loginForm" >
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email"
-               formControlName="username">
+               formControlName="username"
+               (focus)="onFocus(username)">
         <mat-error>
-          <app-error-field [displayError]="isFieldInvalid(username)" >
+          <app-error-field [displayError]="isFieldInvalid(username)"
+                           [errorCode]="username.errors" >
           </app-error-field>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <input type="password" matInput placeholder="Password"
-               formControlName="password">
+               formControlName="password"
+               (focus)="onFocus(password)">
         <mat-error>
-          <app-error-field [displayError]="isFieldInvalid(password)" >
+          <app-error-field [displayError]="isFieldInvalid(password)"
+                           [errorCode]="password.errors">
           </app-error-field>
         </mat-error>
       </mat-form-field>
+
       <div class="offset-md-2">
         <!-- <button mat-raised-button >Login</button> -->
         <button mat-raised-button (click)="loginWithEmail()">Login</button>
       </div>
     </form>
   </div>
-  {{this.loginForm.get('username').value}}
+
+  <app-error-field [displayError]="errorMesage"
+                   [errorCode]="errorMessage">
+  </app-error-field>
+
 </div>

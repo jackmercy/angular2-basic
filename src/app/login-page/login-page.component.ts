@@ -2,7 +2,9 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NavigationExtras } from '@angular/router';
+
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login-page',
@@ -12,11 +14,9 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
+  _user: User;
+  errorMesage: any;
 
-  //username: string;
-  //password: string;
-  state: string;
-  error: string;
   constructor(private auth: AuthService,
               private router: Router,
               private builder: FormBuilder
@@ -27,26 +27,45 @@ export class LoginPageComponent implements OnInit {
       username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+    this.errorMesage = {'noUser': true};
   }
 
   loginWithEmail() {
-/*    this.state = this.auth.loginWithEmail(this.username, this.password);
-    if ( this.state === 'admin' || this.state === 'user') {
-      this.router.navigate(['/dashboard']);
-    } else if (this.state === '401') {
-      this.error = '401 unauthorized';
-    }*/
+    this.errorMesage = '';
+    this.auth.loginWithEmail(this.username.value, this.password.value).
+    subscribe(user => {
 
+      if (user[0]) {
+        this._user = user[0];
+        this.navigate();
+      } else {
+        this.errorMesage = {};
+      }
+    });
   }
 
-  isFieldInvalid(field: AbstractControl){
+  navigate() {
+    if (this._user.role === 'admin' || this._user.role === 'user') {
+      this.router.navigate(['/dashboard']);
+    } else {
+      console.log(this._user);
+      this.errorMesage = '401 unauthorized';
+    }
+  }
+
+  isFieldInvalid(field: AbstractControl) {
     return !field.valid && field.touched;
   }
 
-  get username(){
+  onFocus(field: AbstractControl) {
+    this.errorMesage = '';
+    field.updateValueAndValidity();
+  }
+
+  get username() {
     return this.loginForm.get('username');
   }
-  get password(){
+  get password() {
     return this.loginForm.get('password');
   }
 
