@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'dashboard', canActivate: [AuthenticateGuard], component: DashboardComponent },
-  { path: 'welcome/:username', canActivate: [AuthenticateGuard], component: WelcomeComponent },
+  { path: 'welcome', canActivate: [AuthenticateGuard], component: WelcomeComponent },
+  { path: 'dialog', canActivate: [AuthenticateGuard], component: AppDialogComponent },
   { path: 'admin', canActivate: [AuthenticateGuard, IsAdminGuard], component: AdminComponent },
   { path: '**', component: ErrorPageComponent }
 ];

@@ -5,7 +5,7 @@
       <button mat-menu-item [routerLink]="['/welcome']">User</button>
     </mat-menu>
   <button *ngIf="isAdmin()" mat-button [routerLink]="['/admin']">Admin</button>
-  <button mat-button [routerLink]="['/welcome', username]">User</button>
+  <button mat-button [routerLink]="['/welcome']">User</button>
   <button mat-button [routerLink]="['/dialog']">Dialog</button>
   <button mat-button [routerLink]="['/login']">Logout</button>
 </nav>

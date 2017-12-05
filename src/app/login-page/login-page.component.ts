@@ -21,12 +21,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginWithEmail() {
-    // this.state = this.auth.loginWithEmail(this.username, this.password);
-    // if ( this.state === 'admin' || this.state === 'user') {
-    //   this.router.navigate(['/dashboard']);
-    // } else if (this.state === '401') {
-    //   this.error = '401 unauthorized';
-    // }
     this.auth.loginWithEmail(this.username, this.password).
     subscribe(user => { this._user = user[0]; this.navigate(); });
   }
