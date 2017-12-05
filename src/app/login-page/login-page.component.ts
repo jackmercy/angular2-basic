@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
   _user: User;
-  errorMesage: any;
+  errorMessage: any;
 
   constructor(private auth: AuthService,
               private router: Router,
@@ -27,11 +27,11 @@ export class LoginPageComponent implements OnInit {
       username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-    this.errorMesage = {'noUser': true};
+    this.errorMessage = {};
   }
 
   loginWithEmail() {
-    this.errorMesage = '';
+    this.errorMessage = {};
     this.auth.loginWithEmail(this.username.value, this.password.value).
     subscribe(user => {
 
@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
         this._user = user[0];
         this.navigate();
       } else {
-        this.errorMesage = {};
+        this.errorMessage.noUser = true;
       }
     });
   }
@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     } else {
       console.log(this._user);
-      this.errorMesage = '401 unauthorized';
+      this.errorMessage = {'401': true};
     }
   }
 
@@ -58,7 +58,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onFocus(field: AbstractControl) {
-    this.errorMesage = '';
+    this.errorMessage = {};
     field.updateValueAndValidity();
   }
 

@@ -13,13 +13,15 @@ export class ErrorFieldComponent implements OnInit {
 
   validationMessage: any = {
     required: 'You can\'t leave it empty',
-    noUSer: 'Invalid username or password!'
+    noUser: 'Invalid username or password!',
+    email: 'Invalid email format',
+    401: 'Unauthorized'
   };
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.displayError);
+    //console.log(this.displayError);
   }
 
   getErrorMessage(errorCode: ValidationErrors): string {

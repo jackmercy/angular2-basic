@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -10,10 +11,10 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class WelcomeComponent implements OnInit {
   username: string;
-  constructor(private route: ActivatedRoute) { }
+  constructor( private auth: AuthService) { }
 
   ngOnInit() {
-    this.username = this.route.snapshot.paramMap.get('username');
+    this.username = this.auth.getUsername("user");
   }
 
 }

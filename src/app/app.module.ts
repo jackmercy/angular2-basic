@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './services/auth.service';
+import { SessionStorage } from './services/sessionStorage.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthenticateGuard } from './guard/authenticate.guard';
@@ -64,7 +65,7 @@ export const firebaseConfig = {
     HttpClientModule,
     HttpModule
   ],
-  providers: [AuthService, AuthenticateGuard, IsAdminGuard],
+  providers: [AuthService, SessionStorage, AuthenticateGuard, IsAdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

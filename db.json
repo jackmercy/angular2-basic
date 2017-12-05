@@ -1,6 +1,6 @@
 {
     "users": [
-        { "id": 1, "username": "admin", "password": "admin", "role": "admin" },
+        { "id": 1, "username": "admin@gmail", "password": "admin", "role": "admin" },
         { "id": 2, "username": "jhin", "password": "123", "role": "user" },
         { "id": 3, "username": "oriana", "password": "123", "role": "user" },
         { "id": 4, "username": "ezreal", "password": "123", "role": "user" },

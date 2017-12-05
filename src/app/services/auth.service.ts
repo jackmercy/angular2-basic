@@ -5,6 +5,7 @@ import { Jsonp } from '@angular/http/src/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { SessionStorage } from './sessionStorage.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,14 +14,14 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   AuthState = false;
-  _user: User;
   baseUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private Storage: SessionStorage) { }
 
   loginWithEmail(username: string, password: string): Observable<User> {
     return this.http.get<User>(this.baseUrl + '/users?username=' + username + '&password=' + password)
       .pipe(
-        tap(user => { this._user = user[0]; this.AuthState = true; })
+        tap(user => { this.Storage.setUser("user",user[0]); this.AuthState = true; })
       );
   }
 
@@ -31,10 +32,10 @@ export class AuthService {
     return false;
   }
 
-  getRole(): string {
-    return this._user.role;
+  getRole(key: string): string {
+    return this.Storage.getUser(key).role;
   }
-  getUsername(): string {
-    return this._user.username;
+  getUsername(key: string): string {
+    return this.Storage.getUser(key).username;
   }
 }
