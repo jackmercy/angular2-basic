@@ -24,9 +24,11 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.builder.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      username: ['', Validators.required, ],
+      password: ['', Validators.required],
+      checkbox: [false]
     });
+    console.log(this.loginForm.get('checkbox').value);
     this.errorMessage = {};
   }
 

@@ -1,5 +1,10 @@
 <div class="container">
   <div class="example-form row">
+
+    <app-error-field [displayError]="errorMessage"
+                     [errorCode]="errorMessage">
+    </app-error-field>
+
     <form [formGroup]="loginForm" >
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email"
@@ -23,15 +28,17 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-checkbox formControlName="checkbox" class="checkbox">
+        Remember me
+      </mat-checkbox>
+
       <div class="offset-md-2">
         <!-- <button mat-raised-button >Login</button> -->
-        <button mat-raised-button (click)="loginWithEmail()">Login</button>
+        <button mat-raised-button (click)="loginWithEmail()"
+                [disabled]="!loginForm.valid">Login</button>
       </div>
     </form>
   </div>
 
-  <app-error-field [displayError]="errorMessage"
-                   [errorCode]="errorMessage">
-  </app-error-field>
 
 </div>
