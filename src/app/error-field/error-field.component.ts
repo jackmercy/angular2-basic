@@ -21,7 +21,7 @@ export class ErrorFieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    //console.log(this.displayError);
+    // console.log(this.displayError);
   }
 
   getErrorMessage(errorCode: ValidationErrors): string {

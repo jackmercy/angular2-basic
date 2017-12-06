@@ -5,6 +5,7 @@ import { NavigationExtras } from '@angular/router';
 
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from '../models/user.model';
+import { HttpErrorResponse } from '@angular/common/http/src/response';
 
 @Component({
   selector: 'app-login-page',
@@ -41,7 +42,15 @@ export class LoginPageComponent implements OnInit {
       } else {
         this.errorMessage.noUser = true;
       }
-    });
+    },
+    (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client Error: ', err.error.message);
+        } else {
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+        }
+      }
+    );
   }
 
   navigate() {
