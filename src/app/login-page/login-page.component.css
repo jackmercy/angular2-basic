@@ -1,9 +1,7 @@
 .example-form {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin:auto;
+    position: relative;
+    padding-top: 20%;
     min-width: 150px;
     max-width: 500px;
     width: 100%;
@@ -19,13 +17,29 @@
     flex-direction: column;
   }
 
+.rosen-logo {
+  background-image: url("../../assets/rosen-logo.png");
+  position: absolute;
+  padding:150px;
+  left: 100px;
+  top: 50px;
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.mat-input-element {
+  font-size: 15px; 
+}
+
 >>> .mat-input-underline {
   border-bottom: 1px solid #ffffff;
 }
 
 >>> .mat-input-placeholder {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 15px !important;
 }
 
 >>> .mat-button-wrapper {
@@ -33,11 +47,17 @@
 }
 
 >>> .mat-raised-button[disabled][disabled] {
-  background-color: #0b565c;
+  background-color: rgba(128, 128, 128, 0.267);
+}
+
+>>> .mat-raised-button[disabled][disabled] .mat-button-wrapper {
+  color: grey;
 }
 
 >>> .mat-raised-button{
   background-color: #2196f3;
+  top: 20px;
+  left: -20%;
 }
 
 >>> .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
@@ -50,7 +70,5 @@
 
 >>> .mat-checkbox-label {
   color: #ffffff;
-  font-size: 15px;
 }
 
-button:focus {outline:0;}
