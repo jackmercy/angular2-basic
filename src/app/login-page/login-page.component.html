@@ -1,10 +1,9 @@
 <div class="container">
   <div class="example-form row">
-
+    <div class="rosen-logo"></div>
     <app-error-field [displayError]="errorMessage"
                      [errorCode]="errorMessage">
     </app-error-field>
-
     <form [formGroup]="loginForm" >
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Email"
@@ -16,7 +15,6 @@
           </app-error-field>
         </mat-error>
       </mat-form-field>
-
       <mat-form-field class="example-full-width">
         <input type="password" matInput placeholder="Password"
                formControlName="password"
@@ -27,11 +25,9 @@
           </app-error-field>
         </mat-error>
       </mat-form-field>
-
       <mat-checkbox formControlName="checkbox" class="checkbox">
         Remember me
       </mat-checkbox>
-
       <div class="offset-md-2">
         <!-- <button mat-raised-button >Login</button> -->
         <button mat-raised-button (click)="loginWithEmail()"
@@ -39,6 +35,4 @@
       </div>
     </form>
   </div>
-
-
 </div>
