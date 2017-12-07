@@ -52,8 +52,5 @@
   color: #ffffff;
   font-size: 15px;
 }
-/*  .checkbox:checked {
 
-    background: aqua!important;
-  }*/
 button:focus {outline:0;}
