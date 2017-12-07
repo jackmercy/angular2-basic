@@ -1,22 +1,57 @@
 .example-form {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
 
-  .example-full-width {
+.example-full-width {
     width: 100%;
+    color: #ffffff;
   }
 
-  .example-container {
+.example-container {
     display: flex;
     flex-direction: column;
   }
 
-  .example-container > * {
-    width: 100%;
-  }
+>>> .mat-input-underline {
+  border-bottom: 1px solid #ffffff;
+}
 
+>>> .mat-input-placeholder {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+>>> .mat-button-wrapper {
+  color: #ffffff;
+}
+
+>>> .mat-raised-button[disabled][disabled] {
+  background-color: #0b565c;
+}
+
+>>> .mat-raised-button{
+  background-color: #2196f3;
+}
+
+>>> .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #2196f3;
+}
+
+>>> .mat-checkbox-frame {
+  border-color: #ffffff;
+}
+
+>>> .mat-checkbox-label {
+  color: #ffffff;
+  font-size: 15px;
+}
 /*  .checkbox:checked {
 
     background: aqua!important;
