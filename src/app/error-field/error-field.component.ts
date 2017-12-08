@@ -8,8 +8,11 @@ import {AbstractControl, ValidationErrors} from '@angular/forms';
 })
 export class ErrorFieldComponent implements OnInit {
 
-  @Input() errorCode: ValidationErrors;
+  @Input() errorCode?: ValidationErrors;
+  @Input() errorMessage?: string;
   @Input() displayError: boolean;
+
+  message = '';
 
   validationMessage: any = {
     required: 'You can\'t leave it empty',
@@ -21,14 +24,16 @@ export class ErrorFieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.displayError);
+    if (this.errorCode) {
+      this.getErrorMessage(this.errorCode);
+    } else {
+      this.message = this.errorMessage;
+    }
   }
 
-  getErrorMessage(errorCode: ValidationErrors): string {
-    let message = '';
+  getErrorMessage(errorCode: ValidationErrors) {
     if (errorCode) {
-      Object.keys(errorCode).map(key => message = this.validationMessage[key]);
+      Object.keys(errorCode).map(key => this.message = this.validationMessage[key]);
     }
-    return message;
   }
 }

@@ -17,8 +17,8 @@
     width: 100%;
   }
 
-/*  .checkbox:checked {
-
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
     background: aqua!important;
-  }*/
+  }
 button:focus {outline:0;}

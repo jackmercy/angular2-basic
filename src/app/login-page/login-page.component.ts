@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
   _user: User;
-  errorMessage: any;
+  errorMessage: string;
 
   constructor(private auth: AuthService,
               private router: Router,
@@ -30,11 +30,11 @@ export class LoginPageComponent implements OnInit {
       checkbox: [false]
     });
     console.log(this.loginForm.get('checkbox').value);
-    this.errorMessage = {};
+    this.errorMessage = '';
   }
 
   loginWithEmail() {
-    this.errorMessage = {};
+    this.errorMessage = '';
     this.auth.loginWithEmail(this.username.value, this.password.value).
     subscribe(user => {
 
@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
         this._user = user[0];
         this.navigate();
       } else {
-        this.errorMessage.noUser = true;
+        this.errorMessage = '';
       }
     },
     (err: HttpErrorResponse) => {
@@ -50,6 +50,7 @@ export class LoginPageComponent implements OnInit {
           console.log('Client Error: ', err.error.message);
         } else {
           console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          this.errorMessage = err.error;
         }
       }
     );
@@ -60,7 +61,7 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     } else {
       console.log(this._user);
-      this.errorMessage = {'401': true};
+      this.errorMessage = '';
     }
   }
 
@@ -69,7 +70,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onFocus(field: AbstractControl) {
-    this.errorMessage = {};
+    this.errorMessage = '';
     field.updateValueAndValidity();
   }
 
