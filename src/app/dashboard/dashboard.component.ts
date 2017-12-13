@@ -9,12 +9,16 @@ import { AuthService } from '../services/auth.service';
 export class DashboardComponent implements OnInit {
   Role: string;
   username: string;
-  key = "user";
+  key = 'user';
+  permission: object;
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.Role = this.auth.getRole(this.key);
+    console.log(this.Role);
     this.username = this.auth.getUsername(this.key);
+    this.permission = this.auth.getListMainMenu(this.Role);
+    // console.log(this.auth.getPermission(this.Role));
   }
 
   isAdmin(): boolean {

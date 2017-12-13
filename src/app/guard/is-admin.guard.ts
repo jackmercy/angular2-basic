@@ -10,7 +10,7 @@ export class IsAdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
-    if (this.auth.getRole("user") === 'admin') {
+    if (this.auth.getRole('user') === 'admin' || this.auth.getRole('user') === 'admin2') {
       return true;
     }
     return false;

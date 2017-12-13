@@ -7,7 +7,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatNativeDateModule, MatTableModule, MatTabsModule, MatSortModule } from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule, MatCheckboxModule} from '@angular/material';
 
@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './services/auth.service';
-import { SessionStorage } from './services/sessionStorage.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthenticateGuard } from './guard/authenticate.guard';
@@ -25,6 +24,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppDialogComponent } from './app-dialog/app-dialog.component';
 import { ErrorFieldComponent } from './error-field/error-field.component';
+import { CdkTableModule } from '@angular/cdk/table';
+import { LocalStorage } from './services/localStorage.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPDlkEzb8kIucC6MW8CWsXNAwkC-5M2jM',
@@ -48,11 +49,11 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    BrowserAnimationsModule, // table-material
+    FormsModule, // table-material
 
-    ReactiveFormsModule,
-    MatNativeDateModule,
+    ReactiveFormsModule, // table-material
+    MatNativeDateModule, // table-material
     MatFormFieldModule,
     MatMenuModule,
     MatProgressSpinnerModule,
@@ -63,9 +64,13 @@ export const firebaseConfig = {
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    HttpModule
+    HttpModule, // table-material
+
+    CdkTableModule,
+    MatTableModule,
+    MatSortModule
   ],
-  providers: [AuthService, SessionStorage, AuthenticateGuard, IsAdminGuard],
+  providers: [AuthService, LocalStorage, AuthenticateGuard, IsAdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

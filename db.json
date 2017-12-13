@@ -1,7 +1,7 @@
 {
     "users": [
-        { "id": 1, "username": "admin@gmail", "password": "admin", "role": "admin" },
-        { "id": 2, "username": "jhin", "password": "123", "role": "user" },
+        { "id": 1, "username": "admin@gm.vn", "password": "admin", "role": "admin" },
+        { "id": 2, "username": "jhin", "password": "123", "role": "admin2" },
         { "id": 3, "username": "oriana", "password": "123", "role": "user" },
         { "id": 4, "username": "ezreal", "password": "123", "role": "user" },
         { "id": 5, "username": "lux", "password": "123", "role": "user" },
