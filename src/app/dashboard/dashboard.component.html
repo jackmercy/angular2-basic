@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="['/admin']" *ngIf="isAdmin()">Admin</button>
-      <button mat-menu-item [routerLink]="['/welcome']">User</button>
-    </mat-menu>
-  <button *ngIf="isAdmin()" mat-button [routerLink]="['/admin']">Admin</button>
+  <!-- <button *ngIf="isAdmin()" mat-button [routerLink]="['/admin']">Admin</button>
   <button mat-button [routerLink]="['/welcome']">User</button>
   <button mat-button [routerLink]="['/dialog']">Dialog</button>
-  <button mat-button [routerLink]="['/login']">Logout</button>
+  <button mat-button [routerLink]="['/login']">Logout</button> -->
+  <div *ngFor="let item of permission">
+    <button mat-button [routerLink]="[item.link]" >{{item.name}}</button>
+  </div>
 </nav>

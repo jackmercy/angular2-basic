@@ -33,9 +33,8 @@ export class LoginPageComponent implements OnInit {
 
   loginWithEmail() {
     this.errorMessage = {};
-    this.auth.loginWithEmail(this.username.value, this.password.value).
-    subscribe(user => {
-
+    this.auth.loginWithEmail(this.username.value, this.password.value)
+      .subscribe(user => {
       if (user[0]) {
         this._user = user[0];
         this.navigate();
@@ -54,7 +53,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   navigate() {
-    if (this._user.role === 'admin' || this._user.role === 'user') {
+    if (this._user.role === 'admin' || this._user.role === 'admin2' || this._user.role === 'user') {
       this.router.navigate(['/dashboard']);
     } else {
       console.log(this._user);
