@@ -10,10 +10,12 @@ import { IsAdminGuard } from '../guard/is-admin.guard';
 import { AdminComponent } from '../admin/admin.component';
 import { ErrorPageComponent } from '../error-page/error-page.component';
 import { AppDialogComponent } from '../app-dialog/app-dialog.component';
+import {RegisterComponent} from '../register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterComponent},
   { path: 'dashboard', canActivate: [AuthenticateGuard], component: DashboardComponent },
   { path: 'welcome', canActivate: [AuthenticateGuard], component: WelcomeComponent },
   { path: 'dialog', canActivate: [AuthenticateGuard], component: AppDialogComponent },

@@ -1,0 +1,203 @@
+<form [formGroup]="registerForm">
+  <mat-horizontal-stepper formArrayName="registerArray" [linear]="true">
+    <!--Account Information Step-->
+    <mat-step label="Account Information"
+              formGroupName="0" [stepControl]="registerArray.get([0])">
+      <!--Email-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email"
+               formControlName="email"
+               (focus)="onFocus(accountGroup.get('email'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(accountGroup.get('email'))"
+                           [errorCode]="accountGroup.get('email').errors" >
+          </app-error-field>
+        </mat-error>
+      </mat-form-field>
+
+      <!--Password Group-->
+      <form formGroupName="passwordGroup">
+        <!--Password-->
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Password"
+                 formControlName="password"
+                 (focus)="onFocus(accountPasswordGroup.get('password'))">
+          <mat-icon class="required" matSuffix>*</mat-icon>
+          <mat-error>
+            <app-error-field [displayError]="isFieldInvalid(accountPasswordGroup.get('password'))"
+                             [errorCode]="accountPasswordGroup.get('password').errors" >
+            </app-error-field>
+          </mat-error>
+
+        </mat-form-field>
+
+        <!--Confirm password-->
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Confirm password"
+                 formControlName="confirmPassword" (blur) = "onBlur()"
+                 (focus)="onFocus(accountPasswordGroup.get('confirmPassword'))">
+          <mat-icon class="required" matSuffix>*</mat-icon>
+          <mat-error>
+            <app-error-field [displayError]="isFieldInvalid(accountPasswordGroup.get('confirmPassword'))"
+                             [errorCode]="accountPasswordGroup.get('confirmPassword').errors" >
+            </app-error-field>
+          </mat-error>
+
+        </mat-form-field>
+      </form>
+
+      <!--Navigation-->
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
+      </div>
+    </mat-step>
+    <!--End Account Information Step-->
+
+    <!--Company Information Step-->
+    <mat-step label="Company Information"
+              formGroupName="1" [stepControl]="registerArray.get([1])">
+      <!--Company name-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Company name"
+               formControlName="companyName"
+               (focus)="onFocus(companyGroup.get('companyName'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(companyGroup.get('companyName'))"
+                           [errorCode]="companyGroup.get('companyName').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Street and house number-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Street and house number"
+               formControlName="streetNumber"
+               (focus)="onFocus(companyGroup.get('streetNumber'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(companyGroup.get('streetNumber'))"
+                           [errorCode]="companyGroup.get('streetNumber').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--City-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="City"
+               formControlName="city"
+               (focus)="onFocus(companyGroup.get('city'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(companyGroup.get('city'))"
+                           [errorCode]="companyGroup.get('city').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Country-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Country"
+               formControlName="country"
+               (focus)="onFocus(companyGroup.get('country'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(companyGroup.get('country'))"
+                           [errorCode]="companyGroup.get('country').errors">
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Navigation-->
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
+      </div>
+
+    </mat-step>
+    <!--End Company Information Step-->
+
+    <!--Personal Information Step-->
+    <mat-step label="Company Information"
+              formGroupName="2" [stepControl]="registerArray.get([2])">
+      <!--First name-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First name"
+               formControlName="firstName"
+               (focus)="onFocus(personalGroup.get('firstName'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(personalGroup.get('firstName'))"
+                           [errorCode]="personalGroup.get('firstName').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Last name-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last name"
+               formControlName="lastName"
+               (focus)="onFocus(personalGroup.get('lastName'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(personalGroup.get('lastName'))"
+                           [errorCode]="personalGroup.get('lastName').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Job title-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Job title"
+               formControlName="jobTitle"
+               (focus)="onFocus(personalGroup.get('jobTitle'))">
+        <mat-icon class="required" matSuffix>*</mat-icon>
+        <mat-error>
+          <app-error-field [displayError]="isFieldInvalid(personalGroup.get('jobTitle'))"
+                           [errorCode]="personalGroup.get('jobTitle').errors" >
+          </app-error-field>
+        </mat-error>
+
+      </mat-form-field>
+
+      <!--Work phone-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Work phone"
+               formControlName="workPhone"
+               (focus)="onFocus(workPhone)">
+
+      </mat-form-field>
+
+      <!--Mobile phone-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mobile phone"
+               formControlName="mobilePhone"
+               (focus)="onFocus(mobilePhone)">
+
+      </mat-form-field>
+
+      <!--Navigation-->
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button type="button" (click)="onSubmit()"
+                [disabled]="!registerArray.valid">Submit</button>
+      </div>
+
+    </mat-step>
+    <!--End Personal Information Step-->
+  </mat-horizontal-stepper>
+</form>
+
+<div style="color: white">
+  {{this.accountPasswordGroup.get('confirmPassword').errors}}
+</div>
+
+

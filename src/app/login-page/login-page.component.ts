@@ -74,6 +74,10 @@ export class LoginPageComponent implements OnInit {
     field.updateValueAndValidity();
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
   get username() {
     return this.loginForm.get('username');
   }

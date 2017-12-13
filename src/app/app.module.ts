@@ -7,9 +7,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+import {MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +26,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppDialogComponent } from './app-dialog/app-dialog.component';
 import { ErrorFieldComponent } from './error-field/error-field.component';
+import { RegisterComponent } from './register/register.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { FormGroupComponent } from './form-group/form-group.component';
+
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPDlkEzb8kIucC6MW8CWsXNAwkC-5M2jM',
@@ -44,7 +50,11 @@ export const firebaseConfig = {
     AdminComponent,
     ErrorPageComponent,
     AppDialogComponent,
-    ErrorFieldComponent
+    ErrorFieldComponent,
+    RegisterComponent,
+    DynamicFormComponent,
+    FormFieldComponent,
+    FormGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +69,8 @@ export const firebaseConfig = {
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatStepperModule,
+    MatIconModule,
 
     AppRoutingModule,
     RouterModule,

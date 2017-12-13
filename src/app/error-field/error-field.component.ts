@@ -15,6 +15,7 @@ export class ErrorFieldComponent implements OnInit {
   message = '';
 
   validationMessage: any = {
+    matchOther: 'These passwords don\'t match. Try again?',
     required: 'You can\'t leave it empty',
     noUser: 'Invalid username or password!',
     email: 'Invalid email format',

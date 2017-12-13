@@ -1,0 +1,10 @@
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="controlLabel"
+         formControlName="controlName"
+         (focus)="isFieldFocus()">
+  <mat-error>
+    <app-error-field [displayError]="isFieldInvalid(controlName)"
+                     [errorCode]="getControlError(controlName)" >
+    </app-error-field>
+  </mat-error>
+</mat-form-field>

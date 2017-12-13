@@ -1,0 +1,13 @@
+.example-full-width {
+  width: 100%;
+  color: black;
+}
+
+>> .mat-input-placeholder {
+  color: #ffddffff;
+  font-size: 15px !important;
+}
+
+.required {
+  color: indianred;
+}
