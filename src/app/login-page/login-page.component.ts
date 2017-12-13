@@ -80,5 +80,4 @@ export class LoginPageComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-
 }

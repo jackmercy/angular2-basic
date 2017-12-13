@@ -1,0 +1,16 @@
+<div class="main-body">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
+      <ul class="menuItems">
+        <li *ngFor="let item of items" class="ripple">
+          <a href="#">{{item}}</a>
+        </li>
+      </ul>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      Content goes here!!!!
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

@@ -25,6 +25,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppDialogComponent } from './app-dialog/app-dialog.component';
 import { ErrorFieldComponent } from './error-field/error-field.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { GetMenuItemsService} from './services/get-menu-items.service';
+import { MaterialDesignModule } from './material-design/material-design.module';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPDlkEzb8kIucC6MW8CWsXNAwkC-5M2jM',
@@ -44,7 +47,8 @@ export const firebaseConfig = {
     AdminComponent,
     ErrorPageComponent,
     AppDialogComponent,
-    ErrorFieldComponent
+    ErrorFieldComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -52,20 +56,14 @@ export const firebaseConfig = {
     FormsModule,
 
     ReactiveFormsModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatMenuModule,
-    MatProgressSpinnerModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    MaterialDesignModule,
 
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
     HttpModule
   ],
-  providers: [AuthService, SessionStorage, AuthenticateGuard, IsAdminGuard],
+  providers: [AuthService, SessionStorage, AuthenticateGuard, IsAdminGuard,GetMenuItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
